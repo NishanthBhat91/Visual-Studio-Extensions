@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Include href="KnownImageIds.vsct" />
+  <Include href="VSGlobals.vsct" />
+
+  <Commands package="NBKVSExtension">
+
+    <Menus>
+      <Menu guid="guidNBKVSExtensionGroupSet" id="TopLevelMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>NBK Extensions</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+    
+    <Groups>
+      <!--<Group guid="guidNBKVSExtensionGroupSet" id="TopLevelGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+      </Group>-->
+      <Group guid="guidNBKVSExtensionGroupSet" id="InternalReferenceGroup" priority="0x0600">
+        <Parent guid="guidNBKVSExtensionGroupSet" id="TopLevelMenu" />
+      </Group>
+    </Groups>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="NBKVSExtension" value="{c81f8805-b10c-4645-8bcb-2ec5d9319c62}">
+      
+    </GuidSymbol>
+
+    <GuidSymbol value="{B773FE54-333C-4931-97EB-C6AA79AECA00}" name="guidNBKVSExtensionGroupSet">
+      <!--<IDSymbol value="0x1021" name="TopLevelGroup" />-->
+      <IDSymbol value="0x1022" name="TopLevelMenu" />
+      <IDSymbol value="0x1023" name="InternalReferenceGroup" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
