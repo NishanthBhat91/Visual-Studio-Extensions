@@ -25,6 +25,18 @@
         <Parent guid="guidNBKVSExtensionGroupSet" id="TopLevelMenu" />
       </Group>
     </Groups>
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\cmdInternalReference.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+    </Bitmaps>
+    <Buttons>
+      <Button guid="guidNBKVSExtensionCmdSet" id="cmdInternalReference" priority="0x0100" type="Button">
+        <Parent guid="guidNBKVSExtensionGroupSet" id="InternalReferenceGroup" />
+        <Icon guid="guidImages" id="bmpPicArrows" />
+        <Strings>
+          <ButtonText>Set Internal References</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
   </Commands>
 
   <Symbols>
@@ -36,6 +48,19 @@
       <!--<IDSymbol value="0x1021" name="TopLevelGroup" />-->
       <IDSymbol value="0x1022" name="TopLevelMenu" />
       <IDSymbol value="0x1023" name="InternalReferenceGroup" />
+    </GuidSymbol>
+    
+    <GuidSymbol value="{c43d508d-7ee1-4c0d-a41d-ae434f3d4702}" name="guidNBKVSExtensionCmdSet">
+      <IDSymbol value="256" name="cmdInternalReference" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{d38f18e9-fa8d-4d0b-b6f1-ea0b2744c3a5}" name="guidImages">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

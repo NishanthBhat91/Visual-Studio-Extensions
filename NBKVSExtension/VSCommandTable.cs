@@ -17,6 +17,12 @@ namespace NBKVSExtension
 
         public const string guidNBKVSExtensionGroupSetString = "b773fe54-333c-4931-97eb-c6aa79aeca00";
         public static Guid guidNBKVSExtensionGroupSet = new Guid(guidNBKVSExtensionGroupSetString);
+
+        public const string guidNBKVSExtensionCmdSetString = "c43d508d-7ee1-4c0d-a41d-ae434f3d4702";
+        public static Guid guidNBKVSExtensionCmdSet = new Guid(guidNBKVSExtensionCmdSetString);
+
+        public const string guidImagesString = "d38f18e9-fa8d-4d0b-b6f1-ea0b2744c3a5";
+        public static Guid guidImages = new Guid(guidImagesString);
     }
     /// <summary>
     /// Helper class that encapsulates all CommandIDs uses across VS Package.
@@ -25,5 +31,12 @@ namespace NBKVSExtension
     {
         public const int TopLevelMenu = 0x1022;
         public const int InternalReferenceGroup = 0x1023;
+        public const int cmdInternalReference = 0x0100;
+        public const int bmpPic1 = 0x0001;
+        public const int bmpPic2 = 0x0002;
+        public const int bmpPicSearch = 0x0003;
+        public const int bmpPicX = 0x0004;
+        public const int bmpPicArrows = 0x0005;
+        public const int bmpPicStrikethrough = 0x0006;
     }
 }

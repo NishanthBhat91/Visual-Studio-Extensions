@@ -16,6 +16,7 @@ namespace NBKVSExtension
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+            await cmdInternalReference.InitializeAsync(this);
         }
     }
 }
