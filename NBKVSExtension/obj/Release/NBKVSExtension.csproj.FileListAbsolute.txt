@@ -15,6 +15,7 @@ C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\VSCT
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\VSCT.write.1.tlog
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\resources.json
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\ctoFiles.json
+C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\_EmptyResource.resources.original
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\mergeCto.cache
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\NBKVSExtension.csproj.CoreCompileInputs.cache
 C:\CodeBase\Prep\extension\1\NBKVSExtension_2022\NBKVSExtension\obj\Release\NBKVSExtension.csproj.CopyComplete

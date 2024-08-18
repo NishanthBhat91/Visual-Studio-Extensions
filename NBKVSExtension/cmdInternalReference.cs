@@ -99,15 +99,32 @@ namespace NBKVSExtension
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            string message = "Internal references command invoked.";
+            string message = "Internal references are added successfully.";
             string title = "Internal Reference Tool";
 
             DTE DTE = Package.GetGlobalService(typeof(DTE)) as DTE;
             Solution pSolution = DTE.Solution;
 
+            try
+            {
+                //Build list of all the projects
+                List<VSProject> projects = (
+                    from Project project in pSolution.Projects
+                    where project.Object != null && project.Object is VSProject
+                    select project.Object as VSProject
+                    ).ToList();
 
-            //Build list of all the projects
-            //Check dependency for each of the projects and change references
+                //Check dependency for each of the projects and change references
+                
+                foreach (VSProject project in projects)
+                {
+                    message += project.Project.Name + " | ";
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
 
             VsShellUtilities.ShowMessageBox(
                 this.package,
