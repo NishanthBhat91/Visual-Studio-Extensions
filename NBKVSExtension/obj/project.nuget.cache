@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fv6IGWIesizogUekoUQNvtZBPKA2KemfcYYHMPHYOMadnCuc9a6UINnZQ5aFc6PcIbmPvjS7D3bZlSh75MtNCw==",
+  "dgSpecHash": "Db7CRYE6UHpR5ktAtS7esPNeQ/oIc3NtJcNjAFe/LSJO1RPPKBBt8mH53+c9oRWO1StIAp/g+TFQQMFCQZusrQ==",
   "success": true,
-  "projectFilePath": "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\NBKVSExtension.csproj",
+  "projectFilePath": "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\NBKVSExtension.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NK055096\\.nuget\\packages\\community.visualstudio.toolkit.17\\17.0.430\\community.visualstudio.toolkit.17.17.0.430.nupkg.sha512",
     "C:\\Users\\NK055096\\.nuget\\packages\\community.visualstudio.toolkit.analyzers\\1.0.430\\community.visualstudio.toolkit.analyzers.1.0.430.nupkg.sha512",

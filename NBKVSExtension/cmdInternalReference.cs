@@ -31,8 +31,6 @@ namespace NBKVSExtension
         /// </summary>
         private readonly AsyncPackage package;
 
-        private static IVsThreadedWaitDialog4 twd;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="cmdInternalReference"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -82,11 +80,6 @@ namespace NBKVSExtension
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
             Instance = new cmdInternalReference(package, commandService);
-
-            //Create thread wait dialog to display progress bar if it takes long time
-            var twdFactory = (IVsThreadedWaitDialogFactory)await Community.VisualStudio.Toolkit.VS.Services.GetThreadedWaitDialogAsync();
-            twd = twdFactory.CreateInstance();
-
         }
 
         /// <summary>
@@ -101,6 +94,8 @@ namespace NBKVSExtension
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = "Internal references are added successfully.";
             string title = "Internal Reference Tool";
+            int totalProjects = 0;
+            int currentProjectIndex = 0;
 
             DTE DTE = Package.GetGlobalService(typeof(DTE)) as DTE;
             Solution pSolution = DTE.Solution;
@@ -115,10 +110,26 @@ namespace NBKVSExtension
                     ).ToList();
 
                 //Check dependency for each of the projects and change references
-                
+                totalProjects = projects.Count;
+
+                if (totalProjects == 0)
+                {
+                    message = "No Projects loaded.";
+                }
+
                 foreach (VSProject project in projects)
                 {
-                    message += project.Project.Name + " | ";
+                    var text = $"Project {++currentProjectIndex}/{totalProjects}";
+
+                    foreach (VSProject refProject in projects)
+                    {
+                        Reference reference = project.References.Find(refProject.Project.Name);
+                        if (refProject != project && reference is not null)
+                        {
+                            reference.Remove();
+                            project.References.AddProject(refProject.Project);
+                        }
+                    }
                 }
             }
             catch (Exception ex)

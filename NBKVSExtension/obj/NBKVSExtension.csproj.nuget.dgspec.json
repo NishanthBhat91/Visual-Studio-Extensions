@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\NBKVSExtension.csproj": {}
+    "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\NBKVSExtension.csproj": {}
   },
   "projects": {
-    "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\NBKVSExtension.csproj": {
+    "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\NBKVSExtension.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\NBKVSExtension.csproj",
+        "projectUniqueName": "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\NBKVSExtension.csproj",
         "projectName": "NBKVSExtension",
-        "projectPath": "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\NBKVSExtension.csproj",
+        "projectPath": "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\NBKVSExtension.csproj",
         "packagesPath": "C:\\Users\\NK055096\\.nuget\\packages\\",
-        "outputPath": "C:\\CodeBase\\Prep\\extension\\1\\NBKVSExtension_2022\\NBKVSExtension\\obj\\",
+        "outputPath": "C:\\CodeBase\\Prep\\extension\\7\\NBKVSExtension\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
