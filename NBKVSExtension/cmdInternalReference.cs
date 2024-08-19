@@ -31,6 +31,8 @@ namespace NBKVSExtension
         /// </summary>
         private readonly AsyncPackage package;
 
+        private static IVsThreadedWaitDialog4 twd;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="cmdInternalReference"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -80,6 +82,11 @@ namespace NBKVSExtension
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
             Instance = new cmdInternalReference(package, commandService);
+
+            //Create thread wait dialog to display progress bar if it takes long time
+            var twdFactory = (IVsThreadedWaitDialogFactory)await Community.VisualStudio.Toolkit.VS.Services.GetThreadedWaitDialogAsync();
+            twd = twdFactory.CreateInstance();
+
         }
 
         /// <summary>
@@ -99,6 +106,8 @@ namespace NBKVSExtension
 
             DTE DTE = Package.GetGlobalService(typeof(DTE)) as DTE;
             Solution pSolution = DTE.Solution;
+
+            twd.StartWaitDialog(title, "Reading projects in solution...", "", null, "Processing projects...", 1, true, true);
 
             try
             {
@@ -120,6 +129,7 @@ namespace NBKVSExtension
                 foreach (VSProject project in projects)
                 {
                     var text = $"Project {++currentProjectIndex}/{totalProjects}";
+                    twd.UpdateProgress($"Processing project {project.Project.Name}", text, text, currentProjectIndex, totalProjects, true, out _);
 
                     foreach (VSProject refProject in projects)
                     {
@@ -136,6 +146,9 @@ namespace NBKVSExtension
             {
                 message = ex.Message;
             }
+
+            twd.EndWaitDialog();
+            (twd as IDisposable).Dispose();
 
             VsShellUtilities.ShowMessageBox(
                 this.package,
