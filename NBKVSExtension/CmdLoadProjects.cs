@@ -93,9 +93,14 @@ namespace NBKVSExtension
 
             string title = "Load multiple projects Tool";
 
-            //Input folder loaction from user
-            //Load Csproj files in folder and sub folders
-            //Create a solution and load these projects into it
+            using (frmLoadProjects form = new frmLoadProjects())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    //load projects
+                }
+
+            }
         }
 
     }
