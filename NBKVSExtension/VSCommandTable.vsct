@@ -24,9 +24,13 @@
       <Group guid="guidNBKVSExtensionGroupSet" id="InternalReferenceGroup" priority="0x0600">
         <Parent guid="guidNBKVSExtensionGroupSet" id="TopLevelMenu" />
       </Group>
+      <Group guid="guidNBKVSExtensionPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>
     </Groups>
     <Bitmaps>
       <Bitmap guid="guidImages" href="Resources\cmdInternalReference.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages2" href="Resources\CmdLoadProjects.png" usedList="bmpPicC1, bmpPicC2, bmpPicSearchC, bmpPicXC, bmpPicArrowsC, bmpPicStrikethroughC" />
     </Bitmaps>
     <Buttons>
       <Button guid="guidNBKVSExtensionCmdSet" id="cmdInternalReference" priority="0x0100" type="Button">
@@ -34,6 +38,13 @@
         <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
           <ButtonText>Set Internal References</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidNBKVSExtensionPackageCmdSet" id="cmdidCmdLoadProjects" priority="0x0100" type="Button">
+        <Parent guid="guidNBKVSExtensionGroupSet" id="InternalReferenceGroup" />
+        <Icon guid="guidImages2" id="bmpPicSearchC" />
+        <Strings>
+          <ButtonText>Load Multiple Projects</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -61,6 +72,21 @@
       <IDSymbol name="bmpPicX" value="4" />
       <IDSymbol name="bmpPicArrows" value="5" />
       <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{3c4c5e54-4a34-492e-b20b-15c312fb2ef5}" name="guidNBKVSExtensionPackageCmdSet">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <!--<IDSymbol value="256" name="cmdidcmdLocalReference" />-->
+      <IDSymbol value="256" name="cmdidCmdLoadProjects" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{f37155b7-39a3-4eb7-9b19-083e46808630}" name="guidImages2">
+      <IDSymbol name="bmpPicC1" value="1" />
+      <IDSymbol name="bmpPicC2" value="2" />
+      <IDSymbol name="bmpPicSearchC" value="3" />
+      <IDSymbol name="bmpPicXC" value="4" />
+      <IDSymbol name="bmpPicArrowsC" value="5" />
+      <IDSymbol name="bmpPicStrikethroughC" value="6" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\CodeBase\\Prep\\extension\\8\\NBKVSExtension\\NBKVSExtension.csproj": {}
+  },
+  "projects": {
+    "C:\\CodeBase\\Prep\\extension\\8\\NBKVSExtension\\NBKVSExtension.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CodeBase\\Prep\\extension\\8\\NBKVSExtension\\NBKVSExtension.csproj",
+        "projectName": "NBKVSExtension",
+        "projectPath": "C:\\CodeBase\\Prep\\extension\\8\\NBKVSExtension\\NBKVSExtension.csproj",
+        "packagesPath": "C:\\Users\\NK055096\\.nuget\\packages\\",
+        "outputPath": "C:\\CodeBase\\Prep\\extension\\8\\NBKVSExtension\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\NK055096\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Community.VisualStudio.Toolkit.17": {
+              "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[17.0.430, )"
+            },
+            "Community.VisualStudio.VSCT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[16.0.29.6, )"
+            },
+            "Microsoft.VSSDK.BuildTools": {
+              "target": "Package",
+              "version": "[17.0.5232, )",
+              "generatePathProperty": true
+            },
+            "WindowsAPICodePack-Shell": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

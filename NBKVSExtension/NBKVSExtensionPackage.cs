@@ -17,6 +17,7 @@ namespace NBKVSExtension
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await cmdInternalReference.InitializeAsync(this);
+            await CmdLoadProjects.InitializeAsync(this);
         }
     }
 }
