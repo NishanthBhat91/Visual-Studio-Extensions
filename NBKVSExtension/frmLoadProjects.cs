@@ -27,6 +27,7 @@ namespace NBKVSExtension
         private void InitializeControls()
         {
             txtFolder.Text = string.Empty;
+            chkInternalReference.Checked = false;
             lstProjects.Items.Clear();
             lstProjects.Columns.Clear();
             lstProjects.CheckBoxes = false;
@@ -55,6 +56,7 @@ namespace NBKVSExtension
                 if (result == CommonFileDialogResult.Ok)
                 {
                     txtFolder.Text = folderBrowserDialog.FileName;
+                    LoadProjectsList(folderBrowserDialog.FileName);
                 }
             }
         }
@@ -68,6 +70,33 @@ namespace NBKVSExtension
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void LoadProjectsList(string folderPath)
+        {
+            List<string> projects = GetAllProjectFiles(folderPath);
+            
+			//Load the projects to listview
+        }
+
+        static List<string> GetAllProjectFiles(string folderPath)
+        {
+            List<string> projectFiles = new List<string>();
+
+            try
+            {   string[] files = Directory.GetFiles(folderPath, "*.csproj", SearchOption.AllDirectories);
+                projectFiles.AddRange(files);
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine($"UnauthorizedAccessException: {e.Message}");
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine($"DirectoryNotFoundException: {e.Message}");
+            }
+
+            return projectFiles;
         }
     }
 }
