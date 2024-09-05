@@ -14,6 +14,9 @@ namespace NBKVSExtension
 {
     public partial class frmLoadProjects : Form
     {
+        private int projectCount = 0;
+        private bool skipListItemCheckEvent = false;
+
         public frmLoadProjects()
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace NBKVSExtension
             lstProjects.Columns.Add(string.Empty);
             lstProjects.Items.Add("Select any folder to load projects");
             lstProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            projectCount = 0;
         }
 
         private void lnkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -75,8 +79,38 @@ namespace NBKVSExtension
         private void LoadProjectsList(string folderPath)
         {
             List<string> projects = GetAllProjectFiles(folderPath);
-            
-			//Load the projects to listview
+            projectCount = projects.Count;
+
+            lstProjects.Items.Clear();
+            lstProjects.Columns.Clear();
+
+            if (projects.Count > 0)
+            {
+                lstProjects.CheckBoxes = true;
+                lstProjects.Columns.Add(string.Empty, -2);
+                lstProjects.Columns.Add("Project Name", -2);
+                lstProjects.Columns.Add("Path", -2);
+
+                foreach (string project in projects)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Checked = false;
+                    item.SubItems.Add(project.Substring(project.LastIndexOf('\\') + 1).Replace(".csproj", ""));
+                    item.SubItems.Add(project);
+                    lstProjects.Items.Add(item);
+                }
+
+                lstProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lstProjects.Columns[lstProjects.Columns.Count - 1].Width = -2;
+                toolStripProjectStatus.Text = string.Format("{0} projects loaded", projectCount);
+            }
+            else
+            {
+                lstProjects.CheckBoxes = false;
+                lstProjects.Columns.Add(string.Empty);
+                lstProjects.Items.Add("Selected folder does not have any projects.");
+                lstProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            }
         }
 
         static List<string> GetAllProjectFiles(string folderPath)
