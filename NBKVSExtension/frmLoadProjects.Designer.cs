@@ -34,6 +34,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.lnkSelectAll = new System.Windows.Forms.LinkLabel();
             this.lnkClearSelection = new System.Windows.Forms.LinkLabel();
+            this.chkInternalReference = new System.Windows.Forms.CheckBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lstProjects = new System.Windows.Forms.ListView();
@@ -101,6 +102,16 @@
             this.lnkClearSelection.Text = "Clear Selection";
             this.lnkClearSelection.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkClearSelection_LinkClicked);
             // 
+            // chkInternalReference
+            // 
+            this.chkInternalReference.AutoSize = true;
+            this.chkInternalReference.Location = new System.Drawing.Point(18, 308);
+            this.chkInternalReference.Name = "chkInternalReference";
+            this.chkInternalReference.Size = new System.Drawing.Size(184, 17);
+            this.chkInternalReference.TabIndex = 7;
+            this.chkInternalReference.Text = "Set internal References after load";
+            this.chkInternalReference.UseVisualStyleBackColor = true;
+            // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(311, 355);
@@ -160,6 +171,7 @@
             this.Controls.Add(this.lstProjects);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.chkInternalReference);
             this.Controls.Add(this.lnkClearSelection);
             this.Controls.Add(this.lnkSelectAll);
             this.Controls.Add(this.btnSearch);
@@ -185,6 +197,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.LinkLabel lnkSelectAll;
         private System.Windows.Forms.LinkLabel lnkClearSelection;
+        private System.Windows.Forms.CheckBox chkInternalReference;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ListView lstProjects;
