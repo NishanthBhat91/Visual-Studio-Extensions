@@ -95,9 +95,16 @@ namespace NBKVSExtension
 
             using (frmLoadProjects form = new frmLoadProjects())
             {
-                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK && form.projectList.Count > 0)
                 {
-                    //load projects
+                    DTE DTE = Package.GetGlobalService(typeof(DTE)) as DTE;
+                    Solution pSolution = DTE.Solution;
+
+                    foreach (string projectPath in form.projectList)
+                    {
+                        var text = $"Project {form.projectList.IndexOf(projectPath) + 1}/{form.projectList.Count}";
+                        pSolution.AddFromFile(projectPath);
+                    }
                 }
 
             }

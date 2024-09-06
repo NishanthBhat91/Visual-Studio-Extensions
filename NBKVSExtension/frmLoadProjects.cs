@@ -15,8 +15,10 @@ namespace NBKVSExtension
     public partial class frmLoadProjects : Form
     {
         private int projectCount = 0;
+        private int selectedProjectCount = 0;
         private bool skipListItemCheckEvent = false;
 
+        public List<string> projectList { get; set; } = new List<string>();
         public frmLoadProjects()
         {
             InitializeComponent();
@@ -38,16 +40,37 @@ namespace NBKVSExtension
             lstProjects.Items.Add("Select any folder to load projects");
             lstProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             projectCount = 0;
+            selectedProjectCount = 0;
         }
 
         private void lnkSelectAll_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //TODO
+            if (lstProjects.Items.Count > 0)
+            {
+                skipListItemCheckEvent = true;
+                foreach (ListViewItem item in lstProjects.Items)
+                {
+                    item.Checked = true;
+                }
+                selectedProjectCount = projectCount;
+                toolStripProjectStatus.Text = string.Format("{0} out of {1} projects selected", selectedProjectCount, projectCount);
+                skipListItemCheckEvent = false;
+            }
         }
 
         private void lnkClearSelection_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-			//TODO
+            if (lstProjects.Items.Count > 0)
+            {
+                skipListItemCheckEvent = true;
+                foreach (ListViewItem item in lstProjects.Items)
+                {
+                    item.Checked = false;
+                }
+                selectedProjectCount = 0;
+                toolStripProjectStatus.Text = string.Format("{0} out of {1} projects selected", selectedProjectCount, projectCount);
+                skipListItemCheckEvent = false;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -67,6 +90,11 @@ namespace NBKVSExtension
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            foreach (ListViewItem item in lstProjects.CheckedItems)
+            {
+                projectList.Add(item.SubItems[2].Text);
+            }
+
             this.DialogResult = DialogResult.OK;
         }
 
@@ -83,6 +111,8 @@ namespace NBKVSExtension
 
             lstProjects.Items.Clear();
             lstProjects.Columns.Clear();
+            selectedProjectCount = 0;
+            skipListItemCheckEvent = true;
 
             if (projects.Count > 0)
             {
@@ -111,6 +141,8 @@ namespace NBKVSExtension
                 lstProjects.Items.Add("Selected folder does not have any projects.");
                 lstProjects.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
+
+            skipListItemCheckEvent = false;
         }
 
         static List<string> GetAllProjectFiles(string folderPath)
@@ -131,6 +163,26 @@ namespace NBKVSExtension
             }
 
             return projectFiles;
+        }
+
+        private void lstProjects_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (skipListItemCheckEvent)
+            {
+                return;
+            }
+
+            if(e.Item.Checked)
+            {
+                selectedProjectCount++;
+            }
+            else
+            {
+                selectedProjectCount--;
+            }
+
+
+            toolStripProjectStatus.Text = string.Format("{0} out of {1} projects selected", selectedProjectCount, projectCount);
         }
     }
 }

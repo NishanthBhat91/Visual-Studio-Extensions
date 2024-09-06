@@ -134,6 +134,7 @@
             this.lstProjects.TabIndex = 9;
             this.lstProjects.UseCompatibleStateImageBehavior = false;
             this.lstProjects.View = System.Windows.Forms.View.Details;
+            this.lstProjects.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lstProjects_ItemChecked);
             // 
             // statusStrip1
             // 
