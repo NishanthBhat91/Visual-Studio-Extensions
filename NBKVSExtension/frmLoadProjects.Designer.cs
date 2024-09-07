@@ -111,6 +111,7 @@
             this.chkInternalReference.TabIndex = 7;
             this.chkInternalReference.Text = "Set internal References after load";
             this.chkInternalReference.UseVisualStyleBackColor = true;
+            this.chkInternalReference.CheckedChanged += new System.EventHandler(this.chkInternalReference_CheckedChanged);
             // 
             // btnOk
             // 

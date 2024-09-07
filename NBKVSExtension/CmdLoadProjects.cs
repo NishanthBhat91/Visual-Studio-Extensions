@@ -105,6 +105,12 @@ namespace NBKVSExtension
                         var text = $"Project {form.projectList.IndexOf(projectPath) + 1}/{form.projectList.Count}";
                         pSolution.AddFromFile(projectPath);
                     }
+
+                    if (form.loadInternalReference)
+                    {
+                        DTE.ExecuteCommand("NBKExtensions.SetInternalReferences");
+                    }
+
                 }
 
             }

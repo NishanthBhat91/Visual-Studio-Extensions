@@ -19,6 +19,7 @@ namespace NBKVSExtension
         private bool skipListItemCheckEvent = false;
 
         public List<string> projectList { get; set; } = new List<string>();
+        public bool loadInternalReference { get; set; } = false;
         public frmLoadProjects()
         {
             InitializeComponent();
@@ -183,6 +184,11 @@ namespace NBKVSExtension
 
 
             toolStripProjectStatus.Text = string.Format("{0} out of {1} projects selected", selectedProjectCount, projectCount);
+        }
+
+        private void chkInternalReference_CheckedChanged(object sender, EventArgs e)
+        {
+            loadInternalReference = chkInternalReference.Checked;
         }
     }
 }
