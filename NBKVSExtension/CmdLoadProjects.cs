@@ -27,6 +27,8 @@ namespace NBKVSExtension
         /// </summary>
         private readonly AsyncPackage package;
 
+        private static IVsThreadedWaitDialog4 twd;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CmdLoadProjects"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -78,6 +80,7 @@ namespace NBKVSExtension
 
             //Create thread wait dialog to display progress bar if it takes long time
             var twdFactory = (IVsThreadedWaitDialogFactory)await Community.VisualStudio.Toolkit.VS.Services.GetThreadedWaitDialogAsync();
+            twd = twdFactory.CreateInstance();
         }
 
         /// <summary>
@@ -100,11 +103,16 @@ namespace NBKVSExtension
                     DTE DTE = Package.GetGlobalService(typeof(DTE)) as DTE;
                     Solution pSolution = DTE.Solution;
 
+                    twd.StartWaitDialog(title, "Loading projects...", "", null, "Processing...", 1, true, true);
                     foreach (string projectPath in form.projectList)
                     {
                         var text = $"Project {form.projectList.IndexOf(projectPath) + 1}/{form.projectList.Count}";
+                        twd.UpdateProgress($"Processing {projectPath.Substring(projectPath.LastIndexOf('\\') + 1)}", text, text, form.projectList.IndexOf(projectPath) + 1, form.projectList.Count, true, out _);
                         pSolution.AddFromFile(projectPath);
                     }
+
+                    twd.EndWaitDialog();
+                    (twd as IDisposable).Dispose();
 
                     if (form.loadInternalReference)
                     {
