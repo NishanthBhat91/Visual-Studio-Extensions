@@ -30,6 +30,7 @@
     </Groups>
     <Bitmaps>
       <Bitmap guid="guidImages" href="Resources\cmdInternalReference.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages1" href="Resources\cmdLocalReference.png" usedList="bmpPicB1, bmpPicB2, bmpPicSearchB, bmpPicXB, bmpPicArrowsB, bmpPicStrikethroughB" />
       <Bitmap guid="guidImages2" href="Resources\CmdLoadProjects.png" usedList="bmpPicC1, bmpPicC2, bmpPicSearchC, bmpPicXC, bmpPicArrowsC, bmpPicStrikethroughC" />
     </Bitmaps>
     <Buttons>
@@ -38,6 +39,13 @@
         <Icon guid="guidImages" id="bmpPicArrows" />
         <Strings>
           <ButtonText>Set Internal References</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidNBKVSExtensionCmdSet" id="cmdLocalReference" priority="0x0101" type="Button">
+        <Parent guid="guidNBKVSExtensionGroupSet" id="InternalReferenceGroup" />
+        <Icon guid="guidImages1" id="bmpPicB1" />
+        <Strings>
+          <ButtonText>Set Local References</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidNBKVSExtensionPackageCmdSet" id="cmdidCmdLoadProjects" priority="0x0100" type="Button">
@@ -63,6 +71,7 @@
     
     <GuidSymbol value="{c43d508d-7ee1-4c0d-a41d-ae434f3d4702}" name="guidNBKVSExtensionCmdSet">
       <IDSymbol value="256" name="cmdInternalReference" />
+      <IDSymbol value="257" name="cmdLocalReference" />
     </GuidSymbol>
   
     <GuidSymbol value="{d38f18e9-fa8d-4d0b-b6f1-ea0b2744c3a5}" name="guidImages">
@@ -78,6 +87,15 @@
       <IDSymbol value="4128" name="MyMenuGroup" />
       <!--<IDSymbol value="256" name="cmdidcmdLocalReference" />-->
       <IDSymbol value="256" name="cmdidCmdLoadProjects" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{b26e8ef3-b073-46bf-afea-d43c6e873345}" name="guidImages1">
+      <IDSymbol name="bmpPicB1" value="1" />
+      <IDSymbol name="bmpPicB2" value="2" />
+      <IDSymbol name="bmpPicSearchB" value="3" />
+      <IDSymbol name="bmpPicXB" value="4" />
+      <IDSymbol name="bmpPicArrowsB" value="5" />
+      <IDSymbol name="bmpPicStrikethroughB" value="6" />
     </GuidSymbol>
   
     <GuidSymbol value="{f37155b7-39a3-4eb7-9b19-083e46808630}" name="guidImages2">

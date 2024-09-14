@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="cmdInternalReference.cs" />
     <Compile Include="CmdLoadProjects.cs" />
+    <Compile Include="cmdLocalReference.cs" />
     <Compile Include="frmLoadProjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,7 @@
     </None>
     <Content Include="Resources\cmdInternalReference.png" />
     <Content Include="Resources\CmdLoadProjects.png" />
+    <Content Include="Resources\cmdLocalReference.png" />
     <Content Include="Resources\Icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

@@ -27,6 +27,9 @@ namespace NBKVSExtension
         public const string guidNBKVSExtensionPackageCmdSetString = "3c4c5e54-4a34-492e-b20b-15c312fb2ef5";
         public static Guid guidNBKVSExtensionPackageCmdSet = new Guid(guidNBKVSExtensionPackageCmdSetString);
 
+        public const string guidImages1String = "b26e8ef3-b073-46bf-afea-d43c6e873345";
+        public static Guid guidImages1 = new Guid(guidImages1String);
+
         public const string guidImages2String = "f37155b7-39a3-4eb7-9b19-083e46808630";
         public static Guid guidImages2 = new Guid(guidImages2String);
     }
@@ -38,6 +41,7 @@ namespace NBKVSExtension
         public const int TopLevelMenu = 0x1022;
         public const int InternalReferenceGroup = 0x1023;
         public const int cmdInternalReference = 0x0100;
+        public const int cmdLocalReference = 0x0101;
         public const int bmpPic1 = 0x0001;
         public const int bmpPic2 = 0x0002;
         public const int bmpPicSearch = 0x0003;
@@ -46,6 +50,12 @@ namespace NBKVSExtension
         public const int bmpPicStrikethrough = 0x0006;
         public const int MyMenuGroup = 0x1020;
         public const int cmdidCmdLoadProjects = 0x0100;
+        public const int bmpPicB1 = 0x0001;
+        public const int bmpPicB2 = 0x0002;
+        public const int bmpPicSearchB = 0x0003;
+        public const int bmpPicXB = 0x0004;
+        public const int bmpPicArrowsB = 0x0005;
+        public const int bmpPicStrikethroughB = 0x0006;
         public const int bmpPicC1 = 0x0001;
         public const int bmpPicC2 = 0x0002;
         public const int bmpPicSearchC = 0x0003;
