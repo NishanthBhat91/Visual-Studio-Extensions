@@ -6,6 +6,7 @@ The NBK Extensions Visual Studio Extension is designed to enhance the developmen
 ## Features
 - **Load Multiple Projects:** Loads multiple projects available in sub folders into a solution. This also provides option to set internal references after loading projects.
 - **Set Internal References:** Replaces external references of projects added to the solution with references to internal projects within the solution, if available.
+- **Set Local References:** [Not yet implemented] This feature is planned to allow users to set local references within the solution. Stay tuned for updates!
 
 ### Load Multiple Projects
 > NBK Extensions > Load Multiple Projects
