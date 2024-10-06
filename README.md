@@ -11,9 +11,6 @@ The NBK Extensions Visual Studio Extension is designed to enhance the developmen
 ### Load Multiple Projects
 > NBK Extensions > Load Multiple Projects
 
-![image](https://media.github.cerner.com/user/13407/files/9a112e15-a110-4ea7-83c8-7eba58d36a52)
-![image](https://media.github.cerner.com/user/13407/files/012c8f2f-7be6-4e63-a512-663809c3b141)
-
 #### Usage
 1. After installing the extension, open Visual Studio 2022.
 2. Navigate to the "Extensions" menu and then to the "NBK Extensions" menu.
@@ -24,9 +21,6 @@ The NBK Extensions Visual Studio Extension is designed to enhance the developmen
 
 ### Internal Reference Tool
 > NBK Extensions > Set Internal References
-
-![image](https://media.github.cerner.com/user/13407/files/161a8959-cfad-41ca-91df-b4da40e6b177)
-
 
 #### Usage
 1. After installing the extension, open Visual Studio 2022.
